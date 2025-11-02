@@ -2,7 +2,7 @@ export async function loginUser(username, password) {
   const res = await fetch("https://dummyjson.com/auth/login", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ username, password })
+    body: JSON.stringify({ username, password }),
   });
 
   if (!res.ok) throw new Error("Login failed");
@@ -13,7 +13,7 @@ export async function registerUser(username, email, password) {
   const res = await fetch("https://dummyjson.com/users/add", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ username, email, password })
+    body: JSON.stringify({ username, email, password }),
   });
 
   if (!res.ok) throw new Error("Register failed");

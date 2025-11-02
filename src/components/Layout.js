@@ -1,17 +1,18 @@
 "use client";
 import { getActiveUser, logoutUser } from "@/lib/auth";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
 
 export default function Layout({ children }) {
   const router = useRouter();
+  const pathname = usePathname();
   const user = getActiveUser();
 
   return (
     <div className="layout">
       {/* Header */}
       <header className="header">
-        <div className="logo">MyApp</div>
+        <div className="logo">ConnectoMedia</div>
         <div className="user-info">
           {user && <span>{user.username}</span>}
           {user && (
@@ -31,19 +32,107 @@ export default function Layout({ children }) {
       <div className="content">
         <aside className="sidebar">
           <ul>
-            <li><Link href="/">Home</Link></li>
-            <li><Link href="/posts">Posts</Link></li>
-            <li><Link href="/comments">Comments</Link></li>
-            <li><Link href="/albums">Albums</Link></li>
-            <li><Link href="/photos">Photos</Link></li>
-            <li><Link href="/todos">Todos</Link></li>
-            <li><Link href="/recipes">Recipes</Link></li>
-            <li><Link href="/carts">Carts</Link></li> 
-            <li><Link href="/quotes">Quotes</Link></li>
-            <li><Link href="/users">Users</Link></li>
-            <li><Link href="/login">Login</Link></li>
-            <li><Link href="/register">Register</Link></li>
-            <li><Link href="/mui">Mui</Link></li>
+            <li>
+              <Link href="/" className={pathname === "/" ? "active" : ""}>
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/posts"
+                className={pathname === "/posts" ? "active" : ""}
+              >
+                Posts
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/comments"
+                className={pathname === "/comments" ? "active" : ""}
+              >
+                Comments
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/albums"
+                className={pathname === "/albums" ? "active" : ""}
+              >
+                Albums
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/photos"
+                className={pathname === "/photos" ? "active" : ""}
+              >
+                Photos
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/todos"
+                className={pathname === "/todos" ? "active" : ""}
+              >
+                Todos
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/recipes"
+                className={pathname === "/recipes" ? "active" : ""}
+              >
+                Recipes
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/carts"
+                className={pathname === "/carts" ? "active" : ""}
+              >
+                Carts
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/quotes"
+                className={pathname === "/quotes" ? "active" : ""}
+              >
+                Quotes
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/users"
+                className={pathname === "/users" ? "active" : ""}
+              >
+                Users
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/login"
+                className={pathname === "/login" ? "active" : ""}
+              >
+                Login
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/register"
+                className={pathname === "/register" ? "active" : ""}
+              >
+                Register
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/mui"
+                className={pathname === "/register" ? "active" : ""}
+              >
+                MUI
+              </Link>
+            </li>
           </ul>
         </aside>
 
