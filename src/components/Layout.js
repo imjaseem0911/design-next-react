@@ -126,7 +126,12 @@ export default function Layout({ children }) {
               </Link>
             </li>
             <li>
-              <Link href="/mui">Mui</Link>
+              <Link
+                href="/mui"
+                className={pathname === "/register" ? "active" : ""}
+              >
+                MUI
+              </Link>
             </li>
           </ul>
         </aside>
